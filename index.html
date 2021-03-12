@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html> 
+      
+<head>  
+    <title>  
+        HTML template tag  
+    </title>  
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style>
+      html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      background-color: #C6E2FF;
+      border: 5px outset #6897BB;
+    }
+      h1 {
+        text-align: center;
+      }
+      
+      input[type=text] {
+        border: solid black 1px;
+        border-radius: 3px;
+      }
+      
+      input[type=password] {
+        border: solid black 1px;
+        border-radius: 3px;
+      }
+      
+      div {
+        margin: 0 5% 5% 5%;
+      }
+      
+      .form-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+</head>  
+  
+<body>
+
+
+<h1>Enter your Github</h1>
+<h1>credentials:</h1>
+
+<form>
+  <div class="form-div">
+  <div class="login-fields">
+    <label for="fname">Username:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="psw">Password:</label><br>
+    <input type="password" id="psw" name="psw"><br><br>
+  </div>
+  <div>
+    <input id="submit" type="submit" value="Log in" onclick="check(this.form)">
+  </div>
+  
+  <div>
+    <input id="helpDialog" type="submit" value="Help" >
+  </div>
+  </div>
+  
+  
+</form>
+
+
+
+
+
+
+<script language="javascript">
+      
+     document.getElementById('submit').addEventListener('click', function(){
+     google.script.run.loggedin();
+     })
+     
+     document.getElementById('helpDialog').addEventListener('click', function(){
+     google.script.run.showHelp();
+     })
+</script>
+
+</body> 
+  
+</html>      

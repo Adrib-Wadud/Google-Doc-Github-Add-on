@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    * {
+      color: white;
+    }
+    
+    #listCommitsSection, #getRef, #branch_names {
+       border: solid 1px grey;
+    }
+    
+    #listCommitsSection > div{
+        margin: 0% 0% 5% 0%;
+        width: 100%;
+    }
+   
+    html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      background-color: #333333;
+      border: solid 5px maroon;
+    }
+  
+    div {
+      margin: 0 5% 7% 5%;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    input[type=date] {
+      width: 45%;
+      margin: 0;
+    }
+    
+    option {
+      color: blue;
+      font-weight: bold;
+    }
+
+    label {
+      font-size: 15px;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 10%;
+      margin-bottom: 20%;
+    }
+
+    .com-date {
+      text-align: center;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .submit-button {
+      text-align: center;
+    }
+    
+    input {
+       width : 100%;
+    
+    }
+    
+    
+    #myProgress {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    background-color: grey;
+    }
+
+    #myBar {
+    margin-left: 0;
+    margin-right: 0;
+    width: 1%;
+    height: 5px;
+    background-color: maroon;
+    }
+  </style>
+  <script language="javascript">
+       
+       //loading the repo names
+       var reps = [];
+       google.script.run.withSuccessHandler(function(repos) {
+       s2 = document.getElementById("repositories");
+       s2.innerHTML = "";
+       
+       if (repos == null) {
+         google.script.run.showError("No repos found");
+         return;
+       }
+       
+       var option = 0;
+       for(var repo in repos){
+           var newOption = document.createElement("option");
+           newOption.value = repos[repo];
+           newOption.innerHTML = repos[repo];
+           s2.options.add(newOption);
+           option = option +1;
+           reps.push(repos[repo]);
+       }
+       
+       
+       load_branches_collaborators('repositories');
+      }).listReposNames();
+    
+    //loading the branches and collaborators
+    function load_branches_collaborators(s2){
+         move();
+         var s2 = document.getElementById(s2);
+         google.script.run.withSuccessHandler(function(branches) {
+       
+       branch_select = document.getElementById("branch");
+       branch_select.innerHTML = "";
+       /*
+       compare_commit_branch = document.getElementById("compare_commits_branch1");
+       compare_commit_branch.innerHTML = "";*/
+       
+       for(var branch in branches){
+           var newOption = document.createElement("option");
+           newOption.value = branches[branch];
+           newOption.innerHTML = branches[branch];
+           branch_select.options.add(newOption);
+           
+           /*var branchOption = document.createElement("option");
+           branchOption.value = branches[branch];
+           branchOption.innerHTML = branches[branch];
+           compare_commit_branch.options.add(newOption);*/
+       }
+      
+      }).listBranchesNames(s2.value);
+      
+       google.script.run.withSuccessHandler(function(collaborators) {
+       
+       colab_select = document.getElementById("collaborator");
+       colab_select.innerHTML = "";
+       
+       for(var colab in collaborators){
+           var newOption = document.createElement("option");
+           newOption.value = collaborators[colab];
+           newOption.innerHTML = collaborators[colab];
+           colab_select.options.add(newOption);
+       }
+       
+      var newOption = document.createElement("option");
+      newOption.value = "all_collabs";
+      newOption.innerHTML = "All collaborators";
+      colab_select.options.add(newOption);
+     
+      }).listCollaboratorsNames(s2.value);
+    }
+    
+    //loading the additional elements
+    function get_commit_ref(){
+           var op = document.getElementById("operations");
+           
+           if(op.value == "get_commit"){
+              document.getElementById("getRef").style.display = "block";
+              document.getElementById("branch_names").style.display = "none";
+              document.getElementById("listCommitsSection").style.display = "none";
+           }
+           
+           if(op.value == "compare_commits"){
+              document.getElementById("getRef").style.display = "none";
+              document.getElementById("branch_names").style.display = "block";
+              document.getElementById("listCommitsSection").style.display = "none";
+           }
+           if (op.value == "list_commits") {
+              document.getElementById("getRef").style.display = "none";
+              document.getElementById("branch_names").style.display = "none";
+              document.getElementById("listCommitsSection").style.display = "block";
+           }
+    }
+    
+    function get_commit_details(repo_name, ref){
+        
+        var repo_name = document.getElementById(repo_name);
+        var ref = document.getElementById(ref);
+        google.script.run.withSuccessHandler().printCommit(repo_name.value, ref.value);
+    }
+    
+    function compare_commits(repo_name, ref1, ref2){
+            var repo_name = document.getElementById(repo_name);
+            var ref1 = document.getElementById(ref1);
+            var ref2 = document.getElementById(ref2);
+            google.script.run.withSuccessHandler().printCompareCommits(repo_name.value, ref1.value, ref2.value);
+    
+    }
+    
+    function list_commits(repo_name, attributes){
+       var repo_holder = document.getElementById("repositories");
+       var branch_select = document.getElementById("branch");
+       google.script.run.withSuccessHandler().printListCommits(repo_holder.value, branch_select.value, attributes);
+       console.log("REPO: " + repo_holder.value);
+       console.log("BRANCH: " + branch_select.value);
+    }
+    
+    
+    function print(repo_name){
+    
+       var display = document.getElementById("operations").value;
+       
+       if(display == 'get_commit'){       
+             get_commit_details(repo_name,'ref'); 
+       }
+       else if(display == 'compare_commits'){      
+             compare_commits(repo_name, 'cb1', 'cb2')
+       }
+       else if (display == 'list_commits'){
+             var date1 = document.getElementById("date1").value;
+             if (date1 == "") date1 = null;
+             else date1 += "T00:00:00Z";
+             var date2 = document.getElementById("date2").value;
+             if (date2 == "") date2 = null;
+             else date2 += "T00:00:00Z";
+             var collaborator = document.getElementById("collaborator").value;
+             if (collaborator == "all_collabs") collaborator = null;
+             
+             var attributes = {author: collaborator, since : date1, until : date2};
+             console.log(attributes);
+             list_commits(repo_name, attributes);
+       }
+    }   
+    //for progress bar
+    var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width += 2;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+    
+</script>
+
+</head>
+
+<body>
+   <div id="myProgress">
+    <div id="myBar"></div>
+    </div>
+  <h1><u>Welcome User!</u></h1>
+  
+  <form method="POST" action="RepoPullOptions.html">
+     
+    <div class="repos">
+      <label for="repository">Step 1: Select repository</label><br>
+      <select id="repositories" name="repository" onchange ="load_branches_collaborators('repositories')">
+      </select>
+      <br><br>
+    </div>
+    
+    <div class="disp">
+      <label for="operations">Step 2: Select action.</label><br>
+      <select id="operations" name="operations" onchange="get_commit_ref()">
+        <option value="list_commits">List Commits</option>
+        <option value="get_commit">Get Commit</option>
+        <option value="compare_commits">Compare Commits</option>
+      </select><br><br>
+    </div>
+
+     
+    <div id = "listCommitsSection">
+    <label >Step 3: Select commit listing configuration.</label><br><br>
+    <div class="bran">
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch">
+      </select>
+    </div>
+
+    <div class="com-date" id = "date">
+      <label for="commit-date">Commit Date:</label><br>
+      <span><input type="date" id="date1"> - <input type="date" id="date2"></span><br>  
+    </div>
+
+    <div class="collab">
+      <label for="collaborator">Collaborator:</label>
+      <select id="collaborator" name="collaborator">
+      </select>
+    </div>
+    </div> 
+    
+    
+    <div id="getRef" class="getRef" style="display:none">
+        <label> Step 3: Insert commit reference number or Branch name </label> <br><br>
+        <input id="ref" type="text">
+    </div>
+    
+    <div id="branch_names" class="getRef" style="display:none">
+        <label> Step 3: Select branches or commits to compare: </label> <br><br>
+        <label> Branch/Commit Ref. 1 </label> 
+        <input id="cb1" type="text"><br>
+        <label> Branch/Commit Ref. 2 </label>
+        <input id="cb2" type="text">
+    </div>
+    
+    <div class="submit-button">
+      <input id="display" type="submit" value= "Display" onclick="print('repositories'); move();">
+    </div>
+    
+    <div class="submit-button"> 
+       <input id="StyleDevLog" type="submit" value="Change Styling" onclick="google.script.run.goToStyleDevLogPage();">  
+    </div>
+  </form>
+</body>
+
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    * {
+      color: white;
+    }
+    
+    html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      background-color: #333333;
+      border: 5px outset #00df84;
+    }
+  
+    div {
+      margin: 0 5% 1% 5%;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    input[type=date] {
+      width: 45%;
+      margin: 0;
+    }
+
+    label {
+      font-size: 15px;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+
+    .com-date {
+      text-align: center;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .submit-button {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1><u>Format Document</u></h1>
+  <form method="POST" action="loggedIn.html">
+
+    <div class="header_font">
+      <label for="header_font">Header font:</label><br>
+      <select id="repository" name="header_font">
+        <option value="head_font1">Arial</option>
+        <option value="head_font2">Times New Roman</option>
+        <option value="head_font3">Helvetica</option>
+      </select><br><br>
+    </div>
+    
+    <div class="header_size">
+      <label for="header_size">Header size:</label><br>
+      <select id="header_size" name="header_size">
+        <option value="header_size1">12pt</option>
+        <option value="header_size2">13pt</option>
+        <option value="header_size3">14pt</option>
+      </select><br><br>
+    </div>
+
+    <div class="header_color">
+      <label for="header_color">Header color:</label><br>
+      <select id="branch" name="header_color">
+        <option value="header_color1">Black</option>
+        <option value="header_color2">Grey</option>
+        <option value="header_color3">Blue</option>
+      </select><br><br>
+    </div>
+    
+   
+    <div class="body_font">
+      <label for="body_font">Body font:</label><br>
+      <select id="body_font" name="body_font">
+        <option value="body_font1">Arial</option>
+        <option value="body_font2">Times New Roman</option>
+        <option value="body_font3">Helvetica</option>
+      </select><br><br>
+    </div>
+    
+    <div class="body_size">
+      <label for="body_size">Body size:</label><br>
+      <select id="body_size" name="body_size">
+        <option value="body_size1">12pt</option>
+        <option value="body_size2">13pt</option>
+        <option value="body_size3">14pt</option>
+      </select><br><br>
+    </div>
+
+    <div class="body_color">
+      <label for="body_color">Body color:</label><br>
+      <select id="body_color" name="body_color">
+        <option value="body_color1">Black</option>
+        <option value="body_color2">Grey</option>
+        <option value="body_color3">Blue</option>
+      </select><br><br>
+    </div>
+	
+	
+    <div class="print_format">
+      <label for="print_format">Print format:</label><br>
+      <select id="print_format" name="print_format">
+        <option value="print_format1">Chart</option>
+        <option value="print_format2">Numbered List</option>
+        <option value="print_format3">Unordered List(Bullet points)</option>
+      </select><br><br>
+    </div>
+	
+	
+    <div class="back_color">
+      <label for="back_color">Background color:</label><br>
+      <select id="back_color" name="back_color">
+        <option value="back_color1">Black</option>
+        <option value="back_color2">Light Blue</option>
+        <option value="back_color3">Grey</option>
+      </select><br><br>
+    </div>
+
+    <div class="submit-button">
+      <input id="submitGoBack" type="submit" value= "Update and go back" onclick="check(this.form)">
+      <input id="resetDefault" type="submit" value= "Reset to default" onclick="check(this.form)">
+    </div>
+  </form>
+</body>
+
+<script language="javascript">
+      
+     document.getElementById('submitGoBack').addEventListener('click', function(){
+     google.script.run.loggedin();
+     })
+</script>
+
+</html>

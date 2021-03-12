@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    * {
+      color: white;
+    }
+    
+    html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      background-color: #333333;
+      border: solid 5px maroon;
+    }
+  
+    div {
+      margin: 0 5% 10% 5%;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    input[type=date] {
+      width: 45%;
+      margin: 0;
+    }
+
+    label {
+      font-size: 15px;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 10%;
+      margin-bottom: 20%;
+    }
+
+    .com-date {
+      text-align: center;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .submit-button {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1><u>Welcome User!</u></h1>
+  <form method="POST" action="loggedIn.html">
+
+    <div class="repos">
+      <label for="repository">Repository:</label><br>
+      <select id="repository" name="repository">
+        <option value="proj1">Project 1</option>
+        <option value="proj2">Project 2</option>
+        <option value="proj3">Project 3</option>
+      </select><br><br>
+    </div>
+
+    <div class="bran">
+      <label for="branch">Branch:</label><br>
+      <select id="branch" name="branch">
+        <option value="branch1">Branch 1</option>
+        <option value="branch2">Branch 2</option>
+        <option value="branch3">Branch 3</option>
+      </select><br><br>
+    </div>
+
+    <div class="com-date">
+      <label for="commit-date">Commit Date:</label><br>
+      <span><input type="date"> - <input type="date"></span><br>
+    </div>
+
+    <div class="collab">
+      <label for="collaborator">Collaborator:</label><br>
+      <select id="collaborator" name="collaborator">
+        <option value="collaborator1">Collaborator 1</option>
+        <option value="collaborator2">Collaborator 2</option>
+        <option value="collaborator3">Collaborator 3</option>
+      </select><br><br>
+    </div>
+
+    <div class="disp">
+      <label for="operations">Display:</label><br>
+      <select id="operations" name="operations">
+        <option value="list_commits">List Commits</option>
+        <option value="get_commit">Get Commit</option>
+        <option value="compare_commits">Compare Commits</option>
+      </select><br><br>
+    </div>
+
+    <div class="submit-button">
+      <input id="update" type="submit" value="Update" onclick="check(this.form)">
+      <input id="styling" type="submit" value="Change Styling" onclick="check(this.form)">
+    </div>
+    
+   
+    
+  </form>
+</body>
+
+<script language="javascript">
+      
+     document.getElementById('styling').addEventListener('click', function(){
+     google.script.run.goToStylingPage();
+     })
+</script>
+
+</html>

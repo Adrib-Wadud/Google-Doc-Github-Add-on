@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html> 
+      
+<head>  
+    <title>  
+        HTML template tag  
+    </title>  
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style>
+      html {
+      height: 100%;
+    }
+    
+    body {
+      min-height: 100%;
+      background-color: #C6E2FF;
+      border: 5px outset #6897BB;
+    }
+      h1 {
+        text-align: center;
+      }
+      
+      input[type=text] {
+        border: solid black 1px;
+        border-radius: 3px;
+      }
+      
+      input[type=password] {
+        border: solid black 1px;
+        border-radius: 3px;
+      }
+      
+      div {
+        margin: 0 5% 5% 5%;
+      }
+      
+      .form-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+    input {
+       width : 100%;
+    }
+    </style>
+</head>  
+  
+<body>
+
+
+<h1>Login to Github</h1>
+<h1>to access your </h1>
+<h1>commits.</h1>
+<form>
+  <div class="form-div">
+  <div>
+    <input id="login" type="submit" value="Login to Github" >
+  </div>
+  
+  <div>
+    <input id="helpDialog" type="submit" value="Help" >
+  </div>
+  
+  
+  <div>
+    <input id="openAuthenticationURL" type="submit" value="Login Again" >
+  </div>
+  
+  </div>
+  
+  
+</form>
+
+<script language="javascript">
+       
+     document.getElementById('login').addEventListener('click', function(){
+     //google.script.run.RepoPullOptions();
+        google.script.run.loginToGithub(false);
+     });
+  
+     
+     document.getElementById('openAuthenticationURL').addEventListener('click', function(){
+        google.script.run.loginToGithub2(false);
+     });
+     
+     document.getElementById('helpDialog').addEventListener('click', function(){
+        google.script.run.showHelp();
+        console.log("THIS SHOULD POP UP");
+     });
+</script>
+
+</body> 
+  
+</html>      

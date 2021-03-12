@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<base target="_top">
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+<style>
+* {
+color: white;
+}
+
+html {
+height: 100%;
+}
+
+body {
+min-height: 100%;
+background-color: #333333;
+border: 5px outset #00df84;
+}
+
+option {
+color: blue;
+font-weight: bold;
+}
+
+div {
+margin: 0 5% 1% 5%;
+}
+
+select {
+width: 100%;
+}
+
+input[type=date] {
+width: 45%;
+margin: 0;
+}
+
+label {
+font-size: 15px;
+}
+
+h1 {
+color: white;
+text-align: center;
+margin-top: 10%;
+margin-bottom: 10%;
+}
+
+.com-date {
+text-align: center;
+margin-left: 0;
+margin-right: 0;
+}
+
+.submit-button {
+text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<h1><u>Format Document</u></h1>
+<form method="POST" action="RepoPullOptions.html">
+
+<div class="header_font">
+<label for="header_font">Header Font:</label><br>
+<select id="header_font" name="header_font">
+<option value="head_font_default">Arial</option>
+<option value="head_font1">AMATIC SC</option>
+<option value="head_font2">Arial</option>
+<option value="head_font3">Caveat</option>
+<option value="head_font4">Comfortaa</option>
+<option value="head_font5">Comic Sans MS</option>
+<option value="head_font6">Courier New</option>
+<option value="head_font7">EB Garamond</option>
+<option value="head_font8">Georgia</option>
+<option value="head_font9">Helvetica</option>
+<option value="head_font10">Impact</option>
+<option value="head_font11">Lobster</option>
+<option value="head_font12">Lora</option>
+<option value="head_font13">Merriweather</option>
+<option value="head_font14">Montserrat</option>
+<option value="head_font15">Nunito</option>
+<option value="head_font16">Oswald</option>
+<option value="head_font17">Pacifico</option>
+<option value="head_font18">Playfair Display</option>
+<option value="head_font19">Roboto</option>
+<option value="head_font20">Roboto Mono</option>
+<option value="head_font21">Spectral</option>
+<option value="head_font22">Syncopate</option>
+<option value="head_font23">Times New Roman</option>
+<option value="head_font24">Trebuchet MS</option>
+<option value="head_font25">Verdana</option>
+</select><br><br>
+</div>
+
+<div class="header_size">
+<label for="header_size">Header Size:</label><br>
+<select id="header_size" name="header_size">
+<option value="header_size_default">20pt</option>
+<option value="header_size1">8pt</option>
+<option value="header_size2">9pt</option>
+<option value="header_size3">10pt</option>
+<option value="header_size4">11pt</option>
+<option value="header_size5">12pt</option>
+<option value="header_size6">13pt</option>
+<option value="header_size7">14pt</option>
+<option value="header_size8">15pt</option>
+<option value="header_size9">16pt</option>
+<option value="header_size10">17pt</option>
+<option value="header_size11">18pt</option>
+<option value="header_size12">19pt</option>
+<option value="header_size13">20pt</option>
+</select><br><br>
+</div>
+
+<div class="header_color">
+<label for="header_color">Header Color:</label><br>
+<select id="header_color" name="header_color">
+<option value="header_color1">Aggie (Maroon)</option>
+<option value="header_color2">Red</option>
+<option value="header_color3">Orange</option>
+<option value="header_color4">Yellow</option>
+<option value="header_color5">Green</option>
+<option value="header_color6">Blue</option>
+<option value="header_color7">Purple</option>
+<option value="header_color8">Pink</option>
+<option value="header_color9">Black</option>
+<option value="header_color10">Gray</option>
+<option value="header_color11">White</option>
+</select><br><br>
+</div>
+
+
+<div class="body_font">
+<label for="body_font">Body Font:</label><br>
+<select id="body_font" name="body_font">
+<option value="body_font_default">Arial</option>
+<option value="body_font1">AMATIC SC</option>
+<option value="body_font2">Arial</option>
+<option value="body_font3">Caveat</option>
+<option value="body_font4">Comfortaa</option>
+<option value="body_font5">Comic Sans MS</option>
+<option value="body_font6">Courier New</option>
+<option value="body_font7">EB Garamond</option>
+<option value="body_font8">Georgia</option>
+<option value="body_font9">Helvetica</option>
+<option value="body_font10">Impact</option>
+<option value="body_font11">Lobster</option>
+<option value="body_font12">Lora</option>
+<option value="body_font13">Merriweather</option>
+<option value="body_font14">Montserrat</option>
+<option value="body_font15">Nunito</option>
+<option value="body_font16">Oswald</option>
+<option value="body_font17">Pacifico</option>
+<option value="body_font18">Playfair Display</option>
+<option value="body_font19">Roboto</option>
+<option value="body_font20">Roboto Mono</option>
+<option value="body_font21">Spectral</option>
+<option value="body_font22">Syncopate</option>
+<option value="body_font23">Times New Roman</option>
+<option value="body_font24">Trebuchet MS</option>
+<option value="body_font25">Verdana</option>
+</select><br><br>
+</div>
+
+<div class="body_size">
+<label for="body_size">Body Size:</label><br>
+<select id="body_size" name="body_size">
+<option value="body_size_default">12pt</option>
+<option value="body_size1">8pt</option>
+<option value="body_size2">9pt</option>
+<option value="body_size3">10pt</option>
+<option value="body_size4">11pt</option>
+<option value="body_size5">12pt</option>
+<option value="body_size6">13pt</option>
+<option value="body_size7">14pt</option>
+<option value="body_size8">15pt</option>
+<option value="body_size9">16pt</option>
+<option value="body_size10">17pt</option>
+<option value="body_size11">18pt</option>
+<option value="body_size12">19pt</option>
+<option value="body_size13">20pt</option>
+</select><br><br>
+</div>
+
+<div class="body_color">
+<label for="body_color">Body Color:</label><br>
+<select id="body_color" name="body_color">
+<option value="body_color1">Aggie (Maroon)</option>
+<option value="body_color2">Red</option>
+<option value="body_color3">Orange</option>
+<option value="body_color4">Yellow</option>
+<option value="body_color5">Green</option>
+<option value="body_color6">Blue</option>
+<option value="body_color7">Purple</option>
+<option value="body_color8">Pink</option>
+<option value="body_color9">Black</option>
+<option value="body_color10">Gray</option>
+<option value="body_color11">White</option>
+</select><br><br>
+</div>
+
+
+<div class="print_format">
+<label for="print_format">Print Format:</label><br>
+<select id="print_format" name="print_format">
+<option value="print_format1">Table</option>
+<option value="print_format2">Numbered List</option>
+<option value="print_format3">Bullet Points</option>
+</select><br><br>
+</div>
+
+
+<div class="back_color">
+<label for="back_color">Background Color:</label><br>
+<select id="back_color" name="back_color">
+<option value="back_color_default">White</option>
+<option value="back_color1">Aggie (Maroon)</option>
+<option value="back_color2">Red</option>
+<option value="back_color3">Orange</option>
+<option value="back_color4">Yellow</option>
+<option value="back_color5">Green</option>
+<option value="back_color6">Blue</option>
+<option value="back_color7">Purple</option>
+<option value="back_color8">Pink</option>
+<option value="back_color9">Black</option>
+<option value="back_color10">Gray</option>
+<option value="back_color11">White</option>
+</select><br><br>
+</div>
+
+<div class="submit-button">
+<input id="submitGoBack" type="submit" value= "Update and go back" onclick="check(this.form)">
+<input id="resetDefault" type="submit" value= "Reset to default" onclick="check(this.form)">
+</div>
+</form>
+</body>
+
+<script language="javascript">
+      
+     document.getElementById('submitGoBack').addEventListener('click', function(){
+        // Gets selected options from styling page
+        var selectInputs = document.getElementsByTagName('select');
+        var selectedOptions = [];
+        for(select of selectInputs){
+           selectedOptions.push(select.options[select.selectedIndex].text); 
+        }
+        
+        
+        var selectIndexPrintFormat = document.getElementById("print_format").selectedIndex + 1; 
+        var selectedTextPrintFormat = "TABLE";
+        if (selectIndexPrintFormat == 1)
+          selectedTextPrintFormat = "TABLE";
+        else if (selectIndexPrintFormat == 2)
+          selectedTextPrintFormat = "LIST";
+        else if (selectIndexPrintFormat == 3)
+          selectedTextPrintFormat = "BULLETS";
+
+        google.script.run.setCurrentPrintFormat(selectedTextPrintFormat);
+        console.log(selectedTextPrintFormat);
+        // Change style of document
+        google.script.run.updateDocumentStyling(selectedOptions);
+        
+     google.script.run.RepoPullOptions();
+     })
+     document.getElementById('resetDefault').addEventListener('click', function(){
+        var dropDown = document.getElementById('header_font');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('header_size');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('header_color');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('body_font');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('body_size');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('body_color');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('print_format');
+        dropDown.selectedIndex = 0;
+        dropDown = document.getElementById('back_color');
+        dropDown.selectedIndex = 0;
+     })
+</script>
+
+</html>
