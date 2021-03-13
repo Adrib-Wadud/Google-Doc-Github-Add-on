@@ -8,13 +8,9 @@ Our vision is to help these young developers through the use of our add-on.
 
 Our add-on offers functionalities to list information (committer name, commit date, message, and reference number) about all commits made to a repository between a range of dates, get detailed information about a specific commit, and also compare commits between two branches. 
 
-##Instructions to run the add-on
+## Instructions to use and run  the add-on along with additional information given on the report.pdf file.
 
-1.	Please access the google document by clicking the link below:
 
-https://docs.google.com/document/d/18hzuIWKbYHq4NqWnZzgjM6apTEcWOKClqCHYn0LOdEU/edit
-
-2.	Once the doc opens please click on the Start Project 3 Add-on button 
 
 
 
