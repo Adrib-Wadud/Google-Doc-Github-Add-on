@@ -8,7 +8,7 @@ Our vision is to help these young developers through the use of our add-on.
 
 Our add-on offers functionalities to list information (committer name, commit date, message, and reference number) about all commits made to a repository between a range of dates, get detailed information about a specific commit, and also compare commits between two branches. 
 
-## Instructions to use and run  the add-on along with additional information given on the report.pdf file.
+## Instructions to use and run  the add-on along with picture snippets are given on the report.pdf file.
 
 
 
